@@ -1,2 +1,2 @@
 # javascript-quiz
-UofM Challenge 5 - Javascript Quiz
+UofM Challenge 4 - Javascript Quiz
