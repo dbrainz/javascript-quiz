@@ -1,6 +1,5 @@
 // Array of 10 questions along with the answer choices and which choice is correct
 // each question is an object
-// currently filled with test data - will replace with actual questions later
 
 var questions = [
     {
@@ -130,12 +129,12 @@ function startQuiz() {
     stopTimer=false;
     numCorrect=0;
 
-    timerEl.textContent = timerValue;
+    timerEl.textContent = "Time : " + timerValue;
     displayQuestion();
 
     var timerInterval = setInterval(function() {
         timerValue--;
-        timerEl.textContent = timerValue;
+        timerEl.textContent = "Time : " + timerValue;
         if (timerValue<=0) {
             clearInterval(timerInterval);
             gameEnd();
