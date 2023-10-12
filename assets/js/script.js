@@ -90,6 +90,7 @@ var idleScreen = document.querySelector("#gameIdle");
 var quizScreen = document.querySelector("#quizScreen");
 var highScreen = document.querySelector("#highScoreEntry")
 var endScreen = document.querySelector("#endScore")
+var highScoreListEl = document.querySelector("#highScoreList")
 var timerEl= document.querySelector("#timer");
 var questionEl = document.querySelector("#questionText");
 var answer1 = document.querySelector("#answer1Btn");
@@ -102,7 +103,7 @@ var endScoreMsgEl = document.querySelector("#endScoreMessage")
 var questionIndex = 0;
 var score = 0;
 var stopTimer = false;
-var timerValue = 60;
+var timerValue = 120;
 var numCorrect = 0;
 var highScores = [];
 
@@ -123,7 +124,7 @@ function displayQuestion() {
 }
 
 function startQuiz() {
-    timerValue = 60;
+    timerValue = 120;
     score=0;
     questionIndex=0;
     stopTimer=false;
@@ -161,13 +162,12 @@ function answerChosen(userAnswer){
     if (userAnswer===questions[questionIndex].q_answer) {
         score+=10;
     } else {
-        timerValue-=3;
+        timerValue-=12;
     }
     questionIndex++;
     if (questionIndex<questions.length) {
         displayQuestion();
     } else {
-        score = score + timerValue;
         timerValue=0;
     }
 }
@@ -185,7 +185,12 @@ function updateHighScores(event){
     event.preventDefault()
     highScores.push({name: highScoreForm.elements["nameEntry"].value, score: score})
     highScores.sort((a, b) => b.score - a.score);
+    if (highScores.length>5) {
+        highScores.pop();
+    }
+    
     localStorage.setItem("jsQuizHighScores", JSON.stringify(highScores))
+    displayHighScores();
     highScreen.classList.add("invisible");
     idleScreen.classList.remove("invisible");
 
@@ -195,9 +200,9 @@ function displayScore(){
     quizScreen.classList.add("invisible");
     endScreen.classList.remove("invisible");
     if (score!==1) {
-        endScoreMsgEl.textContent = "You scored " + score + "points!"
+        endScoreMsgEl.textContent = "You scored " + score + " points!"
     } else {
-        endScoreMsgEl.textContent = "You scored " + score + "point!"
+        endScoreMsgEl.textContent = "You scored " + score + " point!"
     }
 }
 
@@ -210,10 +215,17 @@ function goIdle() {
 highScoreForm.addEventListener("submit", updateHighScores);
 
 function displayHighScores(){
+    highScoreListEl.innerHTML=""
+    for (i=0;i<highScores.length;i++){
+        let listItem = document.createElement("li")
+        listItem.textContent=highScores[i].name + " - " + highScores[i].score;
+        highScoreListEl.append(listItem);
 
+    }
 }
 
 if (localStorage.getItem("jsQuizHighScores")) {
     highScores = JSON.parse(localStorage.getItem("jsQuizHighScores"))
 }
 console.log(highScores);
+displayHighScores();

@@ -1,6 +1,15 @@
 
-
+body {
+    text-align: center;
+}
 
 .invisible {
     display: none;
+}
+
+#highScoreList , li{
+ 
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px auto;
 }
