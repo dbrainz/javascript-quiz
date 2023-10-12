@@ -13,7 +13,7 @@
         
         <section id="gameIdle">
             <h2>Press start to begin the quiz</h2>
-            <button id="startButton">START</button>
+            <button id="startBtn">START</button>
             <div>
                 <h3>High Scores</h3>
                 <div id="highScores"></div>
@@ -22,16 +22,25 @@
 
         <section id="quizScreen" class="invisible">
             <div id="questionText"></div>
-            <button onclick="answerChosen('A')" id="answer1">a</button>
-            <button onclick="answerChosen('B')" id="answer2">b</button>
-            <button onclick="answerChosen('C')" id="answer3">c</button>
-            <button onclick="answerChosen('D')" id="answer4">d</button>
+            <button onclick="answerChosen('A')" id="answer1Btn">a</button>
+            <button onclick="answerChosen('B')" id="answer2Btn">b</button>
+            <button onclick="answerChosen('C')" id="answer3Btn">c</button>
+            <button onclick="answerChosen('D')" id="answer4Btn">d</button>
             <h3 id="timer"></h3>
         </section>
 
         <section id="highScoreEntry" class="invisible">
-            <div>
-            </div>
+            <h3 id="highScoreMessage"></h3>
+            <form id="highScoreEntryForm">
+                <label for="nameEntry">Enter your name </label><br>
+                <input type="text" id="nameEntry" name="nameEntry"><br>
+                <button type="submit" id="highSubmitBtn">Submit</button>
+            </form>
+        </section>
+
+        <section id="endScore" class="invisible">
+            <h3 id="endScoreMessage"></h3>
+            <button id="endScoreBtn" onclick="goIdle()">Ok</button>
         </section>
         <script src="./assets/js/script.js"></script>
     </body>
