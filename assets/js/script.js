@@ -4,84 +4,84 @@
 
 var questions = [
     {
-        q_text: "test A",
-        q_answer: "A",
-        q_choice1: "A",
-        q_choice2: "B",
-        q_choice3: "C",
-        q_choice4: "D"
+        q_text: "What is ['a', 'b', 'c']?",
+        q_answer: "B",
+        q_choice1: "an object",
+        q_choice2: "an array",
+        q_choice3: "a string",
+        q_choice4: "none of the above"
     },
     {
-        q_text: "test B",
-        q_answer: "B",
-        q_choice1: "A",
-        q_choice2: "B",
-        q_choice3: "C",
-        q_choice4: "D"
+        q_text: "Which is NOT a Javascript data type?",
+        q_answer: "C",
+        q_choice1: "null",
+        q_choice2: "bigint",
+        q_choice3: "pointer",
+        q_choice4: "symbol"
     },    
     {
-        q_text: "test C",
-        q_answer: "C",
-        q_choice1: "A",
-        q_choice2: "B",
-        q_choice3: "C",
-        q_choice4: "D"
-    },
-    {
-        q_text: "test D",
-        q_answer: "D",
-        q_choice1: "A",
-        q_choice2: "B",
-        q_choice3: "C",
-        q_choice4: "D"
-    },
-    {
-        q_text: "test A",
-        q_answer: "A",
-        q_choice1: "A",
-        q_choice2: "B",
-        q_choice3: "C",
-        q_choice4: "D"
-    },
-    {
-        q_text: "test B",
+        q_text: "Which of these is NOT falsy in Javascript?",
         q_answer: "B",
-        q_choice1: "A",
-        q_choice2: "B",
-        q_choice3: "C",
-        q_choice4: "D"
+        q_choice1: "NaN",
+        q_choice2: "void",
+        q_choice3: "null",
+        q_choice4: "0"
     },
     {
-        q_text: "test C",
-        q_answer: "C",
-        q_choice1: "A",
-        q_choice2: "B",
-        q_choice3: "C",
-        q_choice4: "D"
-    },
-    {
-        q_text: "test D",
+        q_text: "Which is a valid loop type in Javascript?",
         q_answer: "D",
-        q_choice1: "A",
-        q_choice2: "B",
-        q_choice3: "C",
-        q_choice4: "D"
+        q_choice1: "for",
+        q_choice2: "do",
+        q_choice3: "while",
+        q_choice4: "all of the above"
     },
     {
-        q_text: "test A",
-        q_answer: "A",
-        q_choice1: "A",
-        q_choice2: "B",
-        q_choice3: "C",
-        q_choice4: "D"
+        q_text: "In what HTML element do we put the Javascript file?",
+        q_answer: "C",
+        q_choice1: "<style>",
+        q_choice2: "<js>",
+        q_choice3: "<script>",
+        q_choice4: "<javascript>"
     },
     {
-        q_text: "test B",
+        q_text: "In the function declaration 'function test(a)' what is a?",
         q_answer: "B",
-        q_choice1: "A",
-        q_choice2: "B",
-        q_choice3: "C",
-        q_choice4: "D"
+        q_choice1: "an argument",
+        q_choice2: "a parameter",
+        q_choice3: "a string",
+        q_choice4: "a pointer"
+    },
+    {
+        q_text: "How do you write a comment in Javascript?",
+        q_answer: "C",
+        q_choice1: "**Comment",
+        q_choice2: "<!--Comment-->",
+        q_choice3: "//Comment",
+        q_choice4: "--Comment"
+    },
+    {
+        q_text: "Which of these can go in an array?",
+        q_answer: "D",
+        q_choice1: "strings",
+        q_choice2: "numbers",
+        q_choice3: "objects",
+        q_choice4: "all of the above"
+    },
+    {
+        q_text: "What event occurs when the user clicks on the page?",
+        q_answer: "B",
+        q_choice1: "click",
+        q_choice2: "onclick",
+        q_choice3: "submit",
+        q_choice4: "onmouseclick"
+    },
+    {
+        q_text: "Which of these will return an element with the id of 'test'?",
+        q_answer: "C",
+        q_choice1: "document.queryselector('test')",
+        q_choice2: "document.queryselector('.test')",
+        q_choice3: "document.queryselector('#test')",
+        q_choice4: "document.queryselector(#test)"
     }
 ];
 
