@@ -13,3 +13,15 @@ body {
     padding: 0px;
     margin: 0px auto;
 }
+
+#buttonContainer {
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+}
+#answer1Btn, #answer2Btn, #answer3Btn, #answer4Btn {
+    width: 400px;
+    height: 50px;
+    margin: 20px;
+}
