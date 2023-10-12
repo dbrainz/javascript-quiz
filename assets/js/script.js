@@ -84,19 +84,20 @@ var questions = [
         q_choice4: "D"
     }];
 
-    var startButton = document.querySelector("#start-button");
-    var idleScreen = document.querySelector("#game-idle");
-    var quizScreen = document.querySelector("#quiz-screen");
+    var startButton = document.querySelector("#startButton");
+    var idleScreen = document.querySelector("#gameIdle");
+    var quizScreen = document.querySelector("#quizScreen");
     var timerEl= document.querySelector("#timer");
-    var questionEl = document.querySelector("#question-text");
+    var questionEl = document.querySelector("#questionText");
     var answer1 = document.querySelector("#answer1");
     var answer2 = document.querySelector("#answer2");
     var answer3 = document.querySelector("#answer3");
     var answer4 = document.querySelector("#answer4");
     var questionIndex = 0;
     var score = 0;
-    var gameEnd = true;
+    var stopTimer = false;
     var timerValue = 60;
+    var numCorrect = 0;
 
     startButton.addEventListener("click", function() {
         console.log("click")
@@ -107,7 +108,7 @@ var questions = [
     });
 
     function displayQuestion() {
-        questionEl.textContent = questions[questionIndex].q_text;
+        questionEl.textContent = (questionIndex + 1) + ")  " + questions[questionIndex].q_text;
         answer1.textContent = questions[questionIndex].q_choice1;
         answer2.textContent = questions[questionIndex].q_choice2;
         answer3.textContent = questions[questionIndex].q_choice3;
@@ -118,7 +119,8 @@ var questions = [
         timerValue = 60;
         score=0;
         questionIndex=0;
-        gameEnd=false;
+        stopTimer=false;
+        numCorrect=0;
 
         timerEl.textContent = timerValue;
         displayQuestion();
@@ -126,7 +128,7 @@ var questions = [
         var timerInterval = setInterval(function() {
             timerValue--;
             timerEl.textContent = timerValue;
-            if (timerValue<=0 || gameEnd) {
+            if (timerValue<=0 || stopTimer) {
                 clearInterval(timerInterval);
                 idleScreen.classList.remove("invisible");
                 quizScreen.classList.add("invisible");
@@ -134,8 +136,11 @@ var questions = [
                 
             }
         }, 1000)
+    }
 
-  
+    function gameEnd() {
+        console.log("gameEnd");
+        stopTimer=true;
     }
 
     function answerChosen(userAnswer){
@@ -150,21 +155,5 @@ var questions = [
         } else {
             gameEnd();
         }
-    
     }
 
-    answer1.addEventListener("click", function(){
-        answerChosen("A");
-    })
-
-    answer2.addEventListener("click", function(){
-        answerChosen("B");
-    })
-
-    answer3.addEventListener("click", function(){
-        answerChosen("C");
-    })
-
-    answer4.addEventListener("click", function(){
-        answerChosen("D");
-    })

@@ -11,20 +11,27 @@
     <body>
         <h1>Javascript Quiz</h1>
         
-        <section id="game-idle">
+        <section id="gameIdle">
             <h2>Press start to begin the quiz</h2>
-            <button id="start-button">START</button>
+            <button id="startButton">START</button>
+            <div>
+                <h3>High Scores</h3>
+                <div id="highScores"></div>
+            </div>
         </section>
 
-        <section id="quiz-screen" class="invisible">
-            <div id="question-text">
-                test text
-            </div>
-            <button id="answer1">a</button>
-            <button id="answer2">b</button>
-            <button id="answer3">c</button>
-            <button id="answer4">d</button>
+        <section id="quizScreen" class="invisible">
+            <div id="questionText"></div>
+            <button onclick="answerChosen('A')" id="answer1">a</button>
+            <button onclick="answerChosen('B')" id="answer2">b</button>
+            <button onclick="answerChosen('C')" id="answer3">c</button>
+            <button onclick="answerChosen('D')" id="answer4">d</button>
             <h3 id="timer"></h3>
+        </section>
+
+        <section id="highScoreEntry" class="invisible">
+            <div>
+            </div>
         </section>
         <script src="./assets/js/script.js"></script>
     </body>
