@@ -107,11 +107,9 @@ var numCorrect = 0;
 var highScores = [];
 
 startBtn.addEventListener("click", function() {
-    console.log("click")
     idleScreen.classList.add("invisible");
     quizScreen.classList.remove("invisible");
     startQuiz();
-
 });
 
 function displayQuestion() {
@@ -143,6 +141,7 @@ function startQuiz() {
     }, 1000)
 }
 
+// Runs at the end of the game
 function gameEnd() {
     if (highScores.length<5) {
         getHighScore();
@@ -154,6 +153,9 @@ function gameEnd() {
     timerValue=0;
 }
 
+// Tied to the answer buttons - userAnswer indicates which of the four buttons they clicked
+// Updates score and or/timer depending on whether or not they answered correctly
+// Moves to the next question
 function answerChosen(userAnswer){
     if (questionIndex===questions.length){
         return;
@@ -171,30 +173,30 @@ function answerChosen(userAnswer){
     }
 }
 
+// Displays the high score entry page
 function getHighScore(){
     highScreen.classList.remove("invisible");
     quizScreen.classList.add("invisible");
     highScoreMsgEl.textContent = "You got a high score! " + score + " points!"
-
-
-
 }
 
+// Runs when user clicks the submit button on the name entry form after getting a high score
+// Adds the new high score to the high score array, sorts it, and saves it to local storage
 function updateHighScores(event){
     event.preventDefault()
     highScores.push({name: highScoreForm.elements["nameEntry"].value, score: score})
     highScores.sort((a, b) => b.score - a.score);
+    // remove last array entry if there are more than 5 high scores
     if (highScores.length>5) {
         highScores.pop();
-    }
-    
+    }   
     localStorage.setItem("jsQuizHighScores", JSON.stringify(highScores))
     displayHighScores();
     highScreen.classList.add("invisible");
     idleScreen.classList.remove("invisible");
-
 }
 
+// Displays the score screen at the end of the game when the user didn't get a high score
 function displayScore(){
     quizScreen.classList.add("invisible");
     endScreen.classList.remove("invisible");
@@ -205,6 +207,7 @@ function displayScore(){
     }
 }
 
+// Displays the game idle screen
 function goIdle() {
     endScreen.classList.add("invisible");
     displayHighScores();
@@ -213,6 +216,7 @@ function goIdle() {
 
 highScoreForm.addEventListener("submit", updateHighScores);
 
+// Writes the high scores to the page
 function displayHighScores(){
     highScoreListEl.innerHTML=""
     for (i=0;i<highScores.length;i++){
@@ -223,8 +227,9 @@ function displayHighScores(){
     }
 }
 
+// on page load check whether high scores are saved in local storage 
+// if they are, load them into highScores
 if (localStorage.getItem("jsQuizHighScores")) {
     highScores = JSON.parse(localStorage.getItem("jsQuizHighScores"))
 }
-console.log(highScores);
 displayHighScores();
