@@ -1,4 +1,6 @@
-
+html {
+    background-color: lightgray;
+}
 body {
     text-align: center;
     background-color: lightgray;
